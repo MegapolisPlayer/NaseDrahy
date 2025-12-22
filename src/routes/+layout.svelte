@@ -1,8 +1,7 @@
 <script lang="ts">
-	import './layout.css';
+	import '../layout.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import 'remixicon/fonts/remixicon.css';
-	import '../app.css';
 	
 	let { children } = $props();
 </script>
