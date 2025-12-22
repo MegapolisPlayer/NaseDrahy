@@ -46,6 +46,7 @@
 		"wrangler": "^4.56.0"
 	},
 	"dependencies": {
-		"postgres": "^3.4.7"
+		"postgres": "^3.4.7",
+		"remixicon": "^4.7.0"
 	}
 }
