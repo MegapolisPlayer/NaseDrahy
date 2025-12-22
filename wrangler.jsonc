@@ -1,0 +1,35 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "nasedrahy",
+	"compatibility_date": "2025-12-22",
+	"compatibility_flags": ["nodejs_als"],
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"workers_dev": false,
+	"preview_urls": false,
+	"route": {
+		"pattern": "nasedrahy.martinbykov.eu/*",
+		"zone_name": "martinbykov.eu",
+		"custom_domain": true
+	},
+	"vars": {
+		"DEV": "false",
+	},
+	"observability": {
+		"logs": {
+			"enabled": true,
+			"head_sampling_rate": 1,
+			"invocation_logs": true,
+			"persist": true
+		}
+	},
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "dd88e38468114868849036a2f3600bff"
+		}
+	]
+}
