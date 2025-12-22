@@ -20,8 +20,10 @@
 		"db:studio": "drizzle-kit studio"
 	},
 	"devDependencies": {
+		"@cloudflare/types": "^7.0.0",
 		"@eslint/compat": "^1.4.0",
 		"@eslint/js": "^9.39.1",
+		"@inlang/paraglide-js": "2.7.0",
 		"@sveltejs/adapter-cloudflare": "^7.2.4",
 		"@sveltejs/kit": "^2.49.1",
 		"@sveltejs/vite-plugin-svelte": "^6.2.1",
@@ -46,7 +48,9 @@
 		"wrangler": "^4.56.0"
 	},
 	"dependencies": {
+		"@inlang/paraglide-js": "^2.7.0",
 		"postgres": "^3.4.7",
-		"remixicon": "^4.7.0"
+		"remixicon": "^4.7.0",
+		"sveltekit-rate-limiter": "^0.7.0"
 	}
 }

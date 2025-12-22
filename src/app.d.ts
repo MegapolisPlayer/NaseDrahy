@@ -5,10 +5,9 @@ import { DBType } from '$lib/server/db/types';
 declare global {
 	namespace App {
 		interface Platform {
-			env: Env;
-			ctx: ExecutionContext;
-			caches: CacheStorage;
-			cf?: IncomingRequestCfProperties;
+			env: {
+				HYPERDRIVE: Hyperdrive;
+			};
 		}
 
 		// interface Error {}
@@ -18,6 +17,10 @@ declare global {
 		// interface PageData {}
 		// interface PageState {}
 		// interface Platform {}
+	}
+	interface Window {
+		/* eslint-disable @typescript-eslint/no-explicit-any */
+		turnstile: any;
 	}
 }
 
