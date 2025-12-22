@@ -14,7 +14,7 @@ const config = {
 		csp: {
 			directives: {
 				'default-src': ['none'],
-				'font-src': ['self'],
+				'font-src': ['self', 'fonts.googleapis.com'],
 				'script-src': ['self', '*.cloudflare.com', '*.vercel.com', '*.vercel-scripts.com'],
 				'object-src': ['self'],
 				'img-src': ['self'],

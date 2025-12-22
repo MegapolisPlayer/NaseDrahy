@@ -6,6 +6,7 @@ import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
 import * as dataSchema from '$lib/server/db/schema';
 import { paraglideMiddleware } from '$lib/paraglide/server';
+import 'dotenv/config';
 
 const handleParaglide: Handle = ({ event, resolve }) =>
 	paraglideMiddleware(event.request, ({ request, locale }) => {
@@ -48,6 +49,7 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 	let connectionString = '';
 
 	if (env.DEV != 'true') {
+		console.log("ENV/DEV is ", env.DEV, ", using hyperdrive");
 		connectionString = event.platform?.env.HYPERDRIVE.connectionString;
 	} else {
 		if (!env.DATABASE_URL) throw Error('DATABASE_URL not set!');
@@ -68,8 +70,8 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 export const handle: Handle = sequence(
 	handleDatabase,
 	handleParaglide,
-	handleRateLimit,
 	handleSecurity,
+	handleRateLimit
 );
 
-export const init: ServerInit = async () => {}
+export const init: ServerInit = async () => { }

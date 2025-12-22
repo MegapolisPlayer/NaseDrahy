@@ -4,7 +4,7 @@
   "locales": [
     "en",
     "cs",
-	"pl"
+    "pl"
   ],
   "modules": [
     "https://cdn.jsdelivr.net/npm/@inlang/plugin-message-format@4/dist/index.js",
@@ -12,5 +12,12 @@
   ],
   "plugin.inlang.messageFormat": {
     "pathPattern": "./messages/{locale}.json"
-  }
+  },
+  "sourceLanguageTag": "en",
+  "languageTags": [
+    "en",
+    "cs",
+    "pl"
+  ],
+  "telemetry": "none"
 }

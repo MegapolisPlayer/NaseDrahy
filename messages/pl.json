@@ -1,3 +1,21 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "our": "Nasze",
+  "favourite": "ulubione",
+  "beloved": "ukochałe",
+  "reliable": "niezawodne",
+  "punctual": "punktualne",
+  "predictable": "przewidywalne",
+  "extravagant": "ekstrawaganckie",
+  "elegant": "eleganckie",
+  "czech": "czeskie",
+  "railways": "koleje",
+  "languageName": "Polski",
+  "ourRailwaysDotDotDot": "Nasze koleje...",
+  "anImportantCorridorWasLastParalyzedBy": "Ważny korytarz był ostatnio sparaliżowany przez",
+  "linkToPictureSource": "Link do źródła obrazka",
+  "authorsWebsite": "Strona autora",
+  "widgetAuthorsWebsite": "Strona autora widgetu",
+  "selectLanguage": "Wybierz język",
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Ta strona nie ma na celu wyrządzenia żadnej szkody Czeskim Kolejom ani Administracji Kolejowej."
 }

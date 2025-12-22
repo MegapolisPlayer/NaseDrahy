@@ -1,3 +1,21 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "favourite": "oblíbené",
+  "beloved": "milované",
+  "reliable": "spolehlivé",
+  "punctual": "dochvilné",
+  "predictable": "předvidatelné",
+  "extravagant": "bohaté",
+  "elegant": "elegantní",
+  "czech": "české",
+  "railways": "dráhy",
+  "languageName": "Čeština",
+  "our": "Naše ",
+  "ourRailwaysDotDotDot": "Naše dráhy...",
+  "anImportantCorridorWasLastParalyzedBy": "Důležitý koridor byl naposledy paralyzován",
+  "linkToPictureSource": "Odkaz na zdroj obrázku",
+  "authorsWebsite": "Webové stránky autora",
+  "widgetAuthorsWebsite": "Webové stránky autora widgetu",
+  "selectLanguage": "Vyberte jazyk",
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Tento web nemá v úmyslu způsobit žádnou újmu Českým drahám ani Správě železnic."
 }

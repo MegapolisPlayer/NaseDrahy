@@ -1,3 +1,21 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format"
+  "$schema": "https://inlang.com/schema/inlang-message-format",
+  "our": "Our ",
+  "favourite": "favourite",
+  "beloved": "beloved",
+  "reliable": "reliable",
+  "punctual": "punctual",
+  "predictable": "predictable",
+  "extravagant": "extravagant",
+  "elegant": "elegant",
+  "czech": "Czech",
+  "railways": "railways",
+  "languageName": "English",
+  "ourRailwaysDotDotDot": "Our railways...",
+  "anImportantCorridorWasLastParalyzedBy": "An important corridor was last paralyzed by",
+  "linkToPictureSource": "Link to picture source",
+  "authorsWebsite": "Author's website",
+  "widgetAuthorsWebsite": "Widget author's website",
+  "selectLanguage": "Select language",
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "This website does not intend to cause any harm to Czech Railways or the Railway Administration."
 }

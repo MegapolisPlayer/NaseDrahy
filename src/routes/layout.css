@@ -1,2 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	--font-exo: 'Exo', sans-serif;
+	--font-blinker: 'Blinker', sans-serif;
+}
+
+@layer base {	
+	:root {
+		@apply font-exo font-light text-neutral-950 decoration-neutral-950 decoration-2;
+	}
+}
+
+@layer components {
+	a:hover {
+		@apply text-orange-500;
+	}
+	button:hover {
+		@apply text-orange-500;
+	}
+}

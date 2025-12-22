@@ -1,8 +1,12 @@
-import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
+import { pgTable, serial, text, date } from 'drizzle-orm/pg-core';
 
-export const user = pgTable('events', {
+export const events = pgTable('events', {
 	id: serial('id').primaryKey(),
 	name: text('name').notNull(),
-	time: timestamp('time').$defaultFn(() => new Date()),
+	date: date('date').$defaultFn(() =>
+		`${new Date().getUTCFullYear()}-${new Date().getUTCMonth()}-${new Date().getUTCDate()}-`
+	),
 	description: text('description').notNull(),
+	//city name
+	location: text('location').notNull()
 });

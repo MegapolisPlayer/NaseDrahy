@@ -49,6 +49,7 @@
 	},
 	"dependencies": {
 		"@inlang/paraglide-js": "^2.7.0",
+		"dotenv": "^17.2.3",
 		"postgres": "^3.4.7",
 		"remixicon": "^4.7.0",
 		"sveltekit-rate-limiter": "^0.7.0"
