@@ -1,66 +1,91 @@
-import { json } from "@sveltejs/kit";
+import { json, error } from "@sveltejs/kit";
 import { checkRate } from "$lib/server/rate";
 import { getAPIKey } from "$lib/server";
+import * as dataSchema from '$lib/server/db/schema';
+import { eq } from "drizzle-orm";
+import type { EventType } from "$lib/types.js";
+import { setup } from "$lib/server/index.js";
 
-//get amount of days since last problem
-/*
-{
-	sitekey: string,
-}
-returns:
-{
-	success: true/false
-	days: amount/-1
-}
-*/
+//get all events
 export const GET = async (event) => {
-	await checkRate(event);
-	const apiKey = await getAPIKey(event.locals.db);
-	const data = await event.request.json();
+	await setup(event);
 
-	return json({});
+	try {
+		return json({
+			success: true,
+			events: (await event.locals.db.select().from(dataSchema.events)).map(v => {
+				const objectDate = v.date.split('-').map(v => parseInt(v)); //YYYY-MM-DD
+				return {
+					name: v.name,
+					day: objectDate[2],
+					month: objectDate[1],
+					year: objectDate[0],
+					description: v.description,
+					location: v.location,
+					uuid: v.uuid
+				} as EventType;
+			})
+		});
+	}
+	catch {
+		return error(500);
+	}
 };
 
 //add event
-/*
-{
-	sitekey: string,
-	year: number;
-	month: number;
-	day: number;
-	name: string,
-	description: string,
-	city: string,
-}
-returns:
-{
-	success: true/false
-	uuid: uuid of event/empty string
-}
-*/
 export const POST = async (event) => {
-	await checkRate(event);
-	const apiKey = await getAPIKey(event.locals.db);
-	const data = await event.request.json();
+	const data = await setup(event) as {
+		sitekey: string;
+		year: number;
+		month: number;
+		day: number;
+		name: string;
+		description: string;
+		city: string;
+	};
+	if (!data.year || !data.month || !data.name || !data.day || !data.description || !data.city || data.month > 12 || data.day > 31) {
+		error(400);
+	}
 
-	return json({});
+	const uuid = crypto.randomUUID();
+
+	try {
+		await event.locals.db.insert(dataSchema.events).values({
+			date: `${data.year}-${String(data.month).padStart(2, '0')}-${String(data.day).padStart(2, '0')}`,
+			name: data.name,
+			uuid: uuid,
+			description: data.description,
+			location: data.city
+		});
+	}
+	catch {
+		return error(500);
+	}
+
+	return json({
+		success: true,
+		uuid: uuid,
+	});
 };
 
 //delete event
-/*
-{
-	sitekey: string,
-	uuid: string,
-}
-returns:
-{
-	success: true/false
-}
-*/
 export const DELETE = async (event) => {
-	await checkRate(event);
-	const apiKey = await getAPIKey(event.locals.db);
-	const data = await event.request.json();
+	const data = await setup(event) as {
+		sitekey: string;
+		uuid: string;
+	};
+	if (!data.uuid) {
+		error(400);
+	}
 
-	return json({});
+	try {
+		await event.locals.db.delete(dataSchema.events).where(eq(dataSchema.events.uuid, data.uuid));
+	}
+	catch {
+		error(500);
+	}
+
+	return json({
+		success: true
+	});
 };

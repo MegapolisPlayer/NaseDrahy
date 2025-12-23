@@ -1,15 +1,13 @@
 import { pgTable, serial, text, date, integer } from 'drizzle-orm/pg-core';
 
 export const events = pgTable('events', {
-	id: integer('id').primaryKey(),
+	id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
 	name: text('name').notNull(),
-	date: date('date').$defaultFn(() =>
-		`${new Date().getUTCFullYear()}-${new Date().getUTCMonth()}-${new Date().getUTCDate()}-`
-	),
+	date: date('date').notNull(),
 	description: text('description').notNull(),
 	//city name
 	location: text('location').notNull(),
-	uuid: text('uuid').notNull().$defaultFn(() => crypto.randomUUID())
+	uuid: text('uuid').notNull(),
 });
 
 export const settings = pgTable('settings', {

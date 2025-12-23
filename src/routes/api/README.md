@@ -1,7 +1,7 @@
 # API documentation
 
 ## api/ endpoint
-- `GET /api/` - Returns amount of days since last issue.
+- `GET /api/` - Returns all events
   - JSON input:
 	```json
 	{
@@ -11,8 +11,8 @@
   - JSON output:
 	```json
 	{
-	  "success": true/false,
-	  "days": <number_of_days>/-1
+	  "success": true,
+	  "events": [EventType,...]
 	}
 	```
 - `POST /api/` - Accepts JSON payload to create a new accident.
@@ -23,16 +23,16 @@
 		"year": <year>,
 		"month": <month>,
 		"day": <day>,
-		"name": "<reason for event>,
-		"description": "<short description>,
+		"name": "<reason for event>",
+		"description": "<short description>",
 		"city": "<city name>",
 	}
 	```
   - JSON output:
 	```json
 	{
-	  "success": true/false,
-	  "uuid": "<uuid of event>/empty string"
+	  "success": true,
+	  "uuid": "<uuid of event>"
 	}
 	```
 - `DELETE /api/` - Deletes some accident. (SZ sweeping stuff under the rug with this one)
@@ -46,7 +46,7 @@
   - JSON output:
 	```json
 	{
-	  "success": true/false
+	  "success": true
 	}
 	```
 
@@ -61,8 +61,8 @@
   - JSON output:
 	```json
 	{
-	  "success": true/false,
-	  "days": <number_of_days>/-1
+	  "success": true,
+	  "days": <number_of_days>
 	}
 	```
 
@@ -77,15 +77,19 @@
   - JSON output:
 	```json
 	{
-	  "success": true/false,
-	  "event": EventType/{}
+	  "success": true,
+	  "event": EventType
 	}
 	```
-  - EventType structure:
+
+
+## EventType object
 	```json
 	{
 	  "uuid": "<uuid of event>",
-	  "date": "<YYYY-MM-DD>",
+	  "day": <day>,
+	  "month": <month>,
+	  "year": <year>,
 	  "name": "<reason for event>",
 	  "description": "<short description>",
 	  "location": "<city/village name>"

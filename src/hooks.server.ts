@@ -39,7 +39,7 @@ const handleSecurity: Handle = async ({ event, resolve }) => {
 };
 
 const handleRateLimit: Handle = async ({ event, resolve }) => {
-	if (!(await checkRate(event))) {
+	if (await checkRate(event)) {
 		return resolve(event);
 	}
 	return error(429);
@@ -53,7 +53,7 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 		connectionString = event.platform?.env.HYPERDRIVE.connectionString;
 	} else {
 		if (!env.DATABASE_URL) throw Error('DATABASE_URL not set!');
-		console.log(env.DATABASE_URL);
+		console.log("ENV/DEV is ", env.DEV, " using DATABASE_URL: ", env.DATABASE_URL);
 		connectionString = env.DATABASE_URL;
 	}
 
