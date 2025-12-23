@@ -26,3 +26,5 @@ vite.config.ts.timestamp-*
 /worker-configuration.d.ts
 
 .vscode
+
+src/lib/paraglide
