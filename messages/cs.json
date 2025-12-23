@@ -17,5 +17,18 @@
   "authorsWebsite": "Webové stránky autora",
   "widgetAuthorsWebsite": "Webové stránky autora widgetu",
   "selectLanguage": "Vyberte jazyk",
-  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Tento web nemá v úmyslu způsobit žádnou újmu Českým drahám ani Správě železnic."
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Tento web nemá v úmyslu způsobit žádnou újmu Českým drahám ani Správě železnic.",
+  "daysSinceLastExtraordinaryEvent": "Dní od poslední mimořádné události",
+  "tryOurPhoneWidget": "Vyzkoušejte náš telefonní widget",
+  "download": "Stáhnout",
+  "wantToHaveAccessToTheCounterAnywhereEverywhere": "Chcete mít přístup k počítadlu kdekoli a kdykoli?",
+  "previousExtraordinaryEvents": "Předchozí mimořádné události",
+  "whyDoesThisConstantlyHappenAndHowToFixIt": "Proč se to stále děje a jak to opravit",
+  "thisGoesIntoTheYearlyReport": "Tohle jde do výroční zprávy",
+  "thisTime": "Tentokrát",
+  "TODAY": "DNES",
+  "lastExtraordinaryEventHappened": "Poslední mimořádná událost se stala",
+  "didWeNotNoticeSomething": "Nevšimli jsme si něčeho?",
+  "didWeNotNoticeAnEvent": "Nevšimli jsme si nějaké události?",
+  "leaveAMessage": "Zanechte zprávu"
 }

@@ -5,7 +5,7 @@
 </script>
 
 <div
-	class="z-10 flex gap-2 rounded-b-2xl bg-white p-2 ps-5! pe-5! max-lg:w-full max-lg:flex-col lg:w-4/6 lg:flex-row"
+	class="shadow-lg z-10 flex gap-2 rounded-b-2xl bg-white p-2 ps-5! pe-5! max-lg:w-full max-lg:flex-col lg:w-4/6 lg:flex-row"
 >
 	<OurRailways />
 	<div class="max-lg:hidden lg:grow"></div>

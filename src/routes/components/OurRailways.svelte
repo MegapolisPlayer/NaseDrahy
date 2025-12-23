@@ -30,10 +30,14 @@
 	})
 </script>
 
-<div class="flex flex-row gap-2">
-	{m.our()} 
+<div class="flex flex-row gap-1 font-medium">
 	<span>
+		{m.our()} 
+	</span>
+	<span class="font-bold text-amber-500">
 		{messages[id]}
 	</span>
-	{m.railways()}
+	<span>
+		{m.railways()}
+	</span>
 </div>

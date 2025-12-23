@@ -17,5 +17,17 @@
   "authorsWebsite": "Strona autora",
   "widgetAuthorsWebsite": "Strona autora widgetu",
   "selectLanguage": "Wybierz język",
-  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Ta strona nie ma na celu wyrządzenia żadnej szkody Czeskim Kolejom ani Administracji Kolejowej."
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "Ta strona nie ma na celu wyrządzenia żadnej szkody Czeskim Kolejom ani Administracji Kolejowej.",
+  "daysSinceLastExtraordinaryEvent": "Dni od ostatniego nadzwyczajnego zdarzenia",
+  "tryOurPhoneWidget": "Wypróbuj nasz widget na telefon",
+  "download": "Pobierz",
+  "wantToHaveAccessToTheCounterAnywhereEverywhere": "Chcesz mieć dostęp do licznika wszędzie i o każdej porze?",
+  "previousExtraordinaryEvents": "Poprzednie nadzwyczajne zdarzenia",
+  "whyDoesThisConstantlyHappenAndHowToFixIt": "Dlaczego to się ciągle dzieje i jak to naprawić",
+  "thisGoesIntoTheYearlyReport": "To idzie do rocznego raportu",
+  "thisTime": "Tym razem",
+  "TODAY": "DZIŚ",
+  "lastExtraordinaryEventHappened": "Ostatnie nadzwyczajne zdarzenie miało miejsce",
+  "didWeNotNoticeAnEvent": "Czy nie zauważyliśmy jakiegoś zdarzenia?",
+  "leaveAMessage": "Zostaw wiadomość"
 }

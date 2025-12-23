@@ -1,4 +1,6 @@
 import { json } from "@sveltejs/kit";
+import { checkRate } from "$lib/server/rate";
+import { getAPIKey } from "$lib/server";
 
 //get amount of days since last problem
 /*
@@ -11,7 +13,11 @@ returns:
 	days: amount/-1
 }
 */
-export const GET = async () => {
+export const GET = async (event) => {
+	await checkRate(event);
+	const apiKey = await getAPIKey(event.locals.db);
+	const data = await event.request.json();
+
 	return json({});
 };
 
@@ -19,7 +25,9 @@ export const GET = async () => {
 /*
 {
 	sitekey: string,
-	timestamp: Date ISO string,
+	year: number;
+	month: number;
+	day: number;
 	name: string,
 	description: string,
 	city: string,
@@ -30,7 +38,11 @@ returns:
 	uuid: uuid of event/empty string
 }
 */
-export const POST = async () => {
+export const POST = async (event) => {
+	await checkRate(event);
+	const apiKey = await getAPIKey(event.locals.db);
+	const data = await event.request.json();
+
 	return json({});
 };
 
@@ -45,6 +57,10 @@ returns:
 	success: true/false
 }
 */
-export const DELETE = async () => {
+export const DELETE = async (event) => {
+	await checkRate(event);
+	const apiKey = await getAPIKey(event.locals.db);
+	const data = await event.request.json();
+
 	return json({});
 };

@@ -17,5 +17,17 @@
   "authorsWebsite": "Author's website",
   "widgetAuthorsWebsite": "Widget author's website",
   "selectLanguage": "Select language",
-  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "This website does not intend to cause any harm to Czech Railways or the Railway Administration."
+  "thisWebsiteDoesNotIntendToCauseAnyHarmToCzechRailwaysOrTheRailwayAdministration": "This website does not intend to cause any harm to Czech Railways or the Railway Administration.",
+  "daysSinceLastExtraordinaryEvent": "Days since last extraordinary event",
+  "tryOurPhoneWidget": "Try our phone widget",
+  "download": "Download",
+  "wantToHaveAccessToTheCounterAnywhereEverywhere": "Want to have access to the counter anywhere, everywhere?",
+  "previousExtraordinaryEvents": "Previous extraordinary events",
+  "whyDoesThisConstantlyHappenAndHowToFixIt": "Why does this constantly happen and how to fix it",
+  "thisGoesIntoTheYearlyReport": "This goes into the yearly report",
+  "thisTime": "This time",
+  "TODAY": "TODAY",
+  "lastExtraordinaryEventHappened": "Last extraordinary event happened",
+  "didWeNotNoticeAnEvent": "Did we not notice an event?",
+  "leaveAMessage": "Leave a message"
 }
