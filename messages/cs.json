@@ -28,7 +28,10 @@
   "thisTime": "Tentokrát",
   "TODAY": "DNES",
   "lastExtraordinaryEventHappened": "Poslední mimořádná událost se stala",
-  "didWeNotNoticeSomething": "Nevšimli jsme si něčeho?",
   "didWeNotNoticeAnEvent": "Nevšimli jsme si nějaké události?",
-  "leaveAMessage": "Zanechte zprávu"
+  "leaveAMessage": "Zanechte zprávu",
+  "anErrorOccurred": "Došlo k chybě",
+  "noExtraordinaryEventsDotDotDotYet": "Žádné mimořádné události... zatím.",
+  "darkMode": "Tmavý režim",
+  "lightMode": "Světlý režim"
 }

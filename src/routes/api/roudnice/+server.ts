@@ -1,17 +1,21 @@
-import { json, error, isHttpError, type HttpError } from "@sveltejs/kit";
+import { json, error } from "@sveltejs/kit";
 import * as dataSchema from '$lib/server/db/schema';
-
 import { desc, sql } from "drizzle-orm";
 import { DAYS_MS } from "$lib";
 import { setup } from "$lib/server/index.js";
 
 //get amount of days since last problem in roudnice nad labem
-export const GET = async (event) => {
+export const POST = async (event) => {
 	await setup(event);
 
 	let object = undefined;
 	try {
-		object = await event.locals.db.select().from(dataSchema.events).where(sql`${dataSchema.events} LIKE %Roudnice%`).orderBy(desc(dataSchema.events.date)).limit(1);
+		object = await event.locals.db
+			.select()
+			.from(dataSchema.events)
+			.where(sql`${dataSchema.events.location} LIKE ${'%Roudnice%'}`)
+			.orderBy(desc(dataSchema.events.date))
+			.limit(1);
 	}
 	catch {
 		return error(500);
@@ -25,6 +29,6 @@ export const GET = async (event) => {
 
 	return json({
 		success: true,
-		days: (Date.now() - new Date(objectDate[0], objectDate[1], objectDate[2]).getTime()) / DAYS_MS,
+		days: Math.trunc((Date.now() - new Date(objectDate[0], objectDate[1]-1, objectDate[2]).getTime()) / DAYS_MS),
 	});
 };

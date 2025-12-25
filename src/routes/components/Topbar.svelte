@@ -1,40 +1,18 @@
 <script lang="ts">
-	import { m } from '$lib/paraglide/messages';
-	import { setLocale, getLocale } from '$lib/paraglide/runtime';
+	import DarkMode from './DarkMode.svelte';
+	import LanguageSelect from './LanguageSelect.svelte';
 	import OurRailways from './OurRailways.svelte';
+	import { fly } from 'svelte/transition';
+	import { darkMode } from "$lib/index.svelte";
 </script>
 
 <div
-	class="shadow-lg z-10 flex gap-2 rounded-b-2xl bg-white p-2 ps-5! pe-5! max-lg:w-full max-lg:flex-col lg:w-4/6 lg:flex-row"
->
+	class="shadow-lg z-10 flex gap-2 rounded-b-2xl {darkMode.getBackgroundColor()} p-2 ps-5! pe-5! max-lg:w-full max-lg:flex-col lg:w-4/6 lg:flex-row"
+	in:fly|global={{ duration: 500, delay: 100, x: 0, y: -100, opacity: 0 }}
+	>
+	<DarkMode />
+	<div class="max-lg:hidden lg:grow"></div>
 	<OurRailways />
 	<div class="max-lg:hidden lg:grow"></div>
-	<span>
-		<i class="ri-translate-2"></i>
-		{m.selectLanguage()}:
-	</span>
-	<button
-		class="{getLocale() == 'cs' ? "text-orange-500!" : ""}"
-		onclick={() => {
-			setLocale('cs');
-		}}
-	>
-		{m.languageName({}, { locale: 'cs' })}
-	</button>
-	<button
-		class="{getLocale() == 'en' ? "text-orange-500!" : ""}"
-		onclick={() => {
-			setLocale('en');
-		}}
-	>
-		{m.languageName({}, { locale: 'en' })}
-	</button>
-	<button
-		class="{getLocale() == 'pl' ? "text-orange-500!" : ""}"
-		onclick={() => {
-			setLocale('pl');
-		}}
-	>
-		{m.languageName({}, { locale: 'pl' })}
-	</button>
+	<LanguageSelect />
 </div>

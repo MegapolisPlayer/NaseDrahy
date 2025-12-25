@@ -29,5 +29,9 @@
   "TODAY": "DZIŚ",
   "lastExtraordinaryEventHappened": "Ostatnie nadzwyczajne zdarzenie miało miejsce",
   "didWeNotNoticeAnEvent": "Czy nie zauważyliśmy jakiegoś zdarzenia?",
-  "leaveAMessage": "Zostaw wiadomość"
+  "leaveAMessage": "Zostaw wiadomość",
+  "anErrorOccurred": "Wystąpił błąd",
+  "noExtraordinaryEventsDotDotDotYet": "Brak nadzwyczajnych zdarzeń... jeszcze, przynajmniej.",
+  "darkMode": "Tryb ciemny",
+  "lightMode": "Tryb jasny"
 }

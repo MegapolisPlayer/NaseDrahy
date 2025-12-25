@@ -29,5 +29,9 @@
   "TODAY": "TODAY",
   "lastExtraordinaryEventHappened": "Last extraordinary event happened",
   "didWeNotNoticeAnEvent": "Did we not notice an event?",
-  "leaveAMessage": "Leave a message"
+  "leaveAMessage": "Leave a message",
+  "anErrorOccurred": "An error occurred",
+  "noExtraordinaryEventsDotDotDotYet": "No extraordinary events... yet.",
+  "darkMode": "Dark mode",
+  "lightMode": "Light mode"
 }

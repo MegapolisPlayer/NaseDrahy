@@ -1,38 +1,24 @@
-# sv
+# NaseDrahy
+__(Czech for "Our Railways")__
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+A simple web application that tracks all extraordinary events, issues and (sometimes idiotic) accidents of the Czech Railways (České dráhy, ČD) and the railway administration (Správa železnic, SŽ).
 
-## Creating a project
+In collaboration with [@kukuricapolna](https://github.com/kukuricapolna).
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+# Running locally
 ```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+	npm install
+	npm run db:start
+	npm run db:push
+	npm run dev	
 ```
+During local development a `/admin` page is accessible for experimentation with the API.
 
-## Building
+# Deployment
+The application is build to be deployed using Cloudflare Workers. Hyperdrive is used for DB access (PostgreSQL as the DB itself).
 
-To create a production version of your app:
+# API
+API use stored in the settings table. Please contact the administrator for an API key to the live program. Documentation is available at `/src/routes/api/` directory.
 
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+# Contributing
+Feel free to open issues or pull requests.

@@ -2,7 +2,7 @@ import { type RequestEvent } from '@sveltejs/kit';
 import { RateLimiter } from 'sveltekit-rate-limiter/server';
 
 const limiter = new RateLimiter({
-  IPUA: [5, 's'], // IP + User Agent limiter
+  IPUA: [25, 's'], // IP + User Agent limiter
 });
 
 //returns if ok?

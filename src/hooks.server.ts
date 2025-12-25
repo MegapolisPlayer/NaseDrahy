@@ -7,6 +7,7 @@ import postgres from 'postgres';
 import * as dataSchema from '$lib/server/db/schema';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 import 'dotenv/config';
+import { checkSetting } from '$lib/server';
 
 const handleParaglide: Handle = ({ event, resolve }) =>
 	paraglideMiddleware(event.request, ({ request, locale }) => {
@@ -63,6 +64,8 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 		}),
 		{ schema: dataSchema }
 	);
+
+	await checkSetting(event.locals.db, "railwaysPageAPIKey", crypto.randomUUID());
 
 	return resolve(event);
 };

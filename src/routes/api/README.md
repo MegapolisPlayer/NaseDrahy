@@ -1,7 +1,12 @@
 # API documentation
 
-## api/ endpoint
-- `GET /api/` - Returns all events
+All API endpoints require a valid `sitekey` to be provided in the JSON payload. You can obtain an API key by contacting the site administrator.
+You can test all API routes during development from the `/admin/` page. This page is only available in development mode. (env.DEV is true)
+
+All requests are POST because I don't want to have GETs with JSON bodies.
+(Excellent article here)[https://roy.gbiv.com/untangled/2009/it-is-okay-to-use-post]
+
+- `POST /api/get/` - Returns all events
   - JSON input:
 	```json
 	{
@@ -15,7 +20,7 @@
 	  "events": [EventType,...]
 	}
 	```
-- `POST /api/` - Accepts JSON payload to create a new accident.
+- `POST /api/add/` - Accepts JSON payload to create a new accident.
   - JSON input:
 	```json
 	{
@@ -35,7 +40,7 @@
 	  "uuid": "<uuid of event>"
 	}
 	```
-- `DELETE /api/` - Deletes some accident. (SZ sweeping stuff under the rug with this one)
+- `POST /api/delete/` - Deletes some accident. (SZ sweeping stuff under the rug with this one)
   - JSON input:
 	```json
 	{
@@ -50,8 +55,7 @@
 	}
 	```
 
-## api/roudnice/ endpoint
-- `GET /api/roudnice/` - Returns amount of days since last issue in Roudnice nad Labem.
+- `POST /api/roudnice/` - Returns amount of days since last issue in Roudnice nad Labem.
   - JSON input:
 	```json
 	{
@@ -65,9 +69,7 @@
 	  "days": <number_of_days>
 	}
 	```
-
-## api/last/ endpoint
-- `GET /api/last/` - Returns details of the last reported accident.
+- `POST /api/last/` - Returns details of the last reported accident.
   - JSON input:
 	```json
 	{
