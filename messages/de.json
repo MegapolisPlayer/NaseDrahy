@@ -33,5 +33,14 @@
 	"anErrorOccurred": "Ein Fehler ist aufgetreten",
 	"noExtraordinaryEventsDotDotDotYet": "Noch keine außerordentlichen Ereignisse... bisher.",
 	"darkMode": "Dunkelmodus",
-	"lightMode": "Hellmodus"
+	"lightMode": "Hellmodus",
+	"days0": "Tage",
+	"day1": "Tag",
+	"days234": "Tage",
+	"days5": "Tage",
+	"sendMessage": "Nachricht senden",
+	"enterMessageHere": "Geben Sie hier Ihre Nachricht ein",
+	"failedToSendMessage": "Nachricht konnte nicht gesendet werden",
+	"messageSentSuccessfully": "Nachricht erfolgreich gesendet",
+	"sendingMessage": "Nachricht wird gesendet..."
 }

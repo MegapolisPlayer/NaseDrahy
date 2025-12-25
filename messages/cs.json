@@ -33,5 +33,14 @@
   "anErrorOccurred": "Došlo k chybě",
   "noExtraordinaryEventsDotDotDotYet": "Žádné mimořádné události... zatím.",
   "darkMode": "Tmavý režim",
-  "lightMode": "Světlý režim"
+  "lightMode": "Světlý režim",
+  "days0": "dní",
+  "day1": "den",
+  "days234": "dny",
+  "days5": "dní",
+  "sendMessage": "Odeslat zprávu",
+  "enterMessageHere": "Zadejte zprávu zde",
+  "failedToSendMessage": "Odeslání zprávy se nezdařilo",
+  "messageSentSuccessfully": "Zpráva byla úspěšně odeslána",
+  "sendingMessage": "Odesílání zprávy..."
 }

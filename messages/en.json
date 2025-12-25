@@ -33,5 +33,14 @@
   "anErrorOccurred": "An error occurred",
   "noExtraordinaryEventsDotDotDotYet": "No extraordinary events... yet.",
   "darkMode": "Dark mode",
-  "lightMode": "Light mode"
+  "lightMode": "Light mode",
+  "days0": "days",
+  "day1": "day",
+  "days234": "days",
+  "days5": "days",
+  "sendMessage": "Send message",
+  "enterMessageHere": "Enter message here",
+  "failedToSendMessage": "Failed to send message",
+  "messageSentSuccessfully": "Message sent successfully",
+  "sendingMessage": "Sending message..."
 }

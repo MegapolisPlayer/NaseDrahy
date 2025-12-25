@@ -33,5 +33,14 @@
   "anErrorOccurred": "Wystąpił błąd",
   "noExtraordinaryEventsDotDotDotYet": "Brak nadzwyczajnych zdarzeń... jeszcze, przynajmniej.",
   "darkMode": "Tryb ciemny",
-  "lightMode": "Tryb jasny"
+  "lightMode": "Tryb jasny",
+  "days0": "dni",
+  "day1": "dzień",
+  "days234": "dni",
+  "days5": "dni",
+  "sendMessage": "Wyślij wiadomość",
+  "enterMessageHere": "Wpisz tutaj wiadomość",
+  "failedToSendMessage": "Nie udało się wysłać wiadomości",
+  "messageSentSuccessfully": "Wiadomość została wysłana",
+  "sendingMessage": "Wysyłanie wiadomości..."
 }
