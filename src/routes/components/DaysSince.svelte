@@ -46,47 +46,57 @@
 				{daysPassed} {writeDays(daysPassed)}
 			{/if}
 		</div>
-		<div class="flex w-full flex-row gap-2">
-			<div class="grow"></div>
-			<div>
-				{m.didWeNotNoticeAnEvent()}
-			</div>
-			<button class="" onclick={() => (showMessageModal = true)}>
-				{m.leaveAMessage()}
-			</button>
-		</div>
 	{/if}
+	<div class="flex w-full flex-row gap-2">
+		<div class="grow"></div>
+		<div>
+			{m.didWeNotNoticeAnEvent()}
+		</div>
+		<button class="" onclick={() => (showMessageModal = true)}>
+			{m.leaveAMessage()}
+		</button>
+	</div>
 </div>
 
 <Modal bind:showModal={showMessageModal}>
-	<form class="flex w-full grow flex-col gap-2" use:enhance={async () => {
-		sending = true;
-		return async ({ update, result }) => {
-			await update();
+	<form
+		class="flex w-full grow flex-col gap-2"
+		use:enhance={async () => {
+			sending = true;
+			return async ({ update, result }) => {
+				await update();
 
-			if(result.type == 'failure') {
-				alert(m.failedToSendMessage());
-			}
-			else {
-				alert(m.messageSentSuccessfully());
-			}
+				if (result.type == 'failure') {
+					alert(m.failedToSendMessage());
+				} else {
+					alert(m.messageSentSuccessfully());
+				}
 
-			sending = false;
-			showMessageModal = false;
-		}
-	}} method="POST" action="?/sendMessage">
+				sending = false;
+				showMessageModal = false;
+			};
+		}}
+		method="POST"
+		action="?/sendMessage"
+	>
 		{#if sending}
-			<div class="flex flex-col grow w-full justify-center items-center animation-pulse">
+			<div class="animation-pulse flex w-full grow flex-col items-center justify-center">
 				{m.sendingMessage()}
 			</div>
 		{:else}
-		<h2 class="text-2xl">{m.leaveAMessage()}</h2>
-		<textarea name="message" class="text-input {darkMode.getLightBackground()} placeholder:opacity-50" placeholder={m.enterMessageHere()}></textarea>
-		<button class="group {darkMode.getAccentColor()} text-neutral-100 button-primary hover:text-white active:bg-orange-700">
-			<i class="ri-send-plane-line group-hover:hidden"></i>
-			<i class="ri-send-plane-fill not-group-hover:hidden"></i>
-			{m.sendMessage()}
-		</button>
+			<h2 class="text-2xl">{m.leaveAMessage()}</h2>
+			<textarea
+				name="message"
+				class="text-input {darkMode.getLightBackground()} placeholder:opacity-50"
+				placeholder={m.enterMessageHere()}
+			></textarea>
+			<button
+				class="group {darkMode.getAccentColor()} button-primary text-neutral-100 hover:text-white active:bg-orange-700"
+			>
+				<i class="ri-send-plane-line group-hover:hidden"></i>
+				<i class="ri-send-plane-fill not-group-hover:hidden"></i>
+				{m.sendMessage()}
+			</button>
 		{/if}
 	</form>
 </Modal>

@@ -35,7 +35,7 @@
 			>
 				<div
 					bind:this={clickable}
-					class="{darkMode.getBackgroundColor()} p-5 text-left rounded-lg max-w-4/5 mt-5 mb-5
+					class="{darkMode.getBackgroundColor()} p-5 text-left rounded-lg max-lg:w-full lg:max-w-4/5 mt-5 mb-5
 			"
 				>
 					{@render children?.()}

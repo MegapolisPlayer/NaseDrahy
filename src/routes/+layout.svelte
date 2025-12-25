@@ -26,7 +26,7 @@
 {#key ready}
 	{#if ready}
 	<div
-		class="relative flex min-h-screen max-w-screen min-w-screen grow flex-col items-center justify-center gap-0 bg-[url('/pozadi.jpg')] bg-cover bg-fixed"
+		class="relative flex min-h-screen max-w-screen min-w-screen grow flex-col items-center justify-center gap-0 bg-[url('/pozadi.jpg')] bg-cover bg-fixed overflow-hidden"
 	>
 		<div class="absolute top-0 left-0 z-1 h-full w-full {darkMode.getTransparentBackgroundColor()}"></div>
 
