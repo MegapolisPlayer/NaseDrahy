@@ -7,7 +7,7 @@ export const events = pgTable('events', {
 	description: text('description').notNull(),
 	//city name
 	location: text('location').notNull(),
-	uuid: text('uuid').notNull().unique(),
+	uuid: text('uuid').notNull().unique()
 });
 
 export const settings = pgTable('settings', {

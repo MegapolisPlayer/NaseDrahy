@@ -1,6 +1,6 @@
-import { json, error } from "@sveltejs/kit";
-import { setup } from "$lib/server/index.js";
-import { getEvents } from "$lib/server/index.js";
+import { json, error } from '@sveltejs/kit';
+import { setup } from '$lib/server/index.js';
+import { getEvents } from '$lib/server/index.js';
 
 //get all events
 export const POST = async (event) => {
@@ -11,9 +11,7 @@ export const POST = async (event) => {
 			success: true,
 			events: await getEvents(event.locals.db)
 		});
-	}
-	catch {
+	} catch {
 		return error(500);
 	}
 };
-

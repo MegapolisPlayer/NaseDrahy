@@ -4,11 +4,11 @@
 	import { m } from '$lib/paraglide/messages';
 </script>
 
-<div 
+<div
 	class="flex flex-row rounded-2xl {darkMode.getAccentColor()} p-5 text-white max-lg:w-full lg:w-4/6"
 	in:fly|global={{ duration: 1000, delay: 1000, x: -500, y: 0, opacity: 0 }}
 >
-	<div class="flex flex-col gap-0 justify-center">
+	<div class="flex flex-col justify-center gap-0">
 		<h2 class="text-2xl font-medium">
 			{m.wantToHaveAccessToTheCounterAnywhereEverywhere()}
 		</h2>

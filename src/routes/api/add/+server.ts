@@ -1,14 +1,23 @@
-import { json, error } from "@sveltejs/kit";
+import { json, error } from '@sveltejs/kit';
 import * as dataSchema from '$lib/server/db/schema';
-import { setup } from "$lib/server/index.js";
-import type { EventTypeInput } from "$lib/types.js";
+import { setup } from '$lib/server/index.js';
+import type { EventTypeInput } from '$lib/types.js';
 
 //add event
 export const POST = async (event) => {
-	const data = await setup(event) as {
+	const data = (await setup(event)) as {
 		sitekey: string;
 	} & EventTypeInput;
-	if (!data.year || !data.month || !data.name || !data.day || !data.description || !data.city || data.month > 12 || data.day > 31) {
+	if (
+		!data.year ||
+		!data.month ||
+		!data.name ||
+		!data.day ||
+		!data.description ||
+		!data.city ||
+		data.month > 12 ||
+		data.day > 31
+	) {
 		error(400);
 	}
 
@@ -22,14 +31,12 @@ export const POST = async (event) => {
 			description: data.description,
 			location: data.city
 		});
-	}
-	catch {
+	} catch {
 		return error(500);
 	}
 
 	return json({
 		success: true,
-		uuid: uuid,
+		uuid: uuid
 	});
 };
-

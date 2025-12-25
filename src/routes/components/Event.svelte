@@ -23,7 +23,11 @@
 	<div>
 		{event.description}
 	</div>
-	<div class="flex flex-row gap-2 w-full {isRoudnice ? "font-medium" : ""} {isRoudnice ? darkMode.getAccentColorText() : darkMode.getLightBackground()}">
+	<div
+		class="flex w-full flex-row gap-2 {isRoudnice ? 'font-medium' : ''} {isRoudnice
+			? darkMode.getAccentColorText()
+			: darkMode.getLightBackground()}"
+	>
 		<div>
 			<i class="ri-calendar-2-line"></i>
 			{event.day.toString().padStart(2, '0')}.{event.month.toString().padStart(2, '0')}.{event.year}

@@ -8,92 +8,99 @@ All requests are POST because I don't want to have GETs with JSON bodies.
 
 - `POST /api/get/` - Returns all events
   - JSON input:
-	```json
-	{
-	  "sitekey": "<api-key>"
-	}
-	```
+  ```json
+  {
+  	"sitekey": "<api-key>"
+  }
+  ```
+
   - JSON output:
-	```json
-	{
-	  "success": true,
-	  "events": [EventType,...]
-	}
-	```
+  ```json
+  {
+    "success": true,
+    "events": [EventType,...]
+  }
+  ```
 - `POST /api/add/` - Accepts JSON payload to create a new accident.
   - JSON input:
-	```json
-	{
-	  	"sitekey": "<api-key>",
-		"year": <year>,
-		"month": <month>,
-		"day": <day>,
-		"name": "<reason for event>",
-		"description": "<short description>",
-		"city": "<city name>",
-	}
-	```
+  ```json
+  {
+    	"sitekey": "<api-key>",
+  	"year": <year>,
+  	"month": <month>,
+  	"day": <day>,
+  	"name": "<reason for event>",
+  	"description": "<short description>",
+  	"city": "<city name>",
+  }
+  ```
+
   - JSON output:
-	```json
-	{
-	  "success": true,
-	  "uuid": "<uuid of event>"
-	}
-	```
+  ```json
+  {
+  	"success": true,
+  	"uuid": "<uuid of event>"
+  }
+  ```
 - `POST /api/delete/` - Deletes some accident. (SZ sweeping stuff under the rug with this one)
   - JSON input:
-	```json
-	{
-	  "sitekey": "<api-key>",
-	  "uuid": "<uuid of event>"
-	}
-	```
+
+  ```json
+  {
+  	"sitekey": "<api-key>",
+  	"uuid": "<uuid of event>"
+  }
+  ```
+
   - JSON output:
-	```json
-	{
-	  "success": true
-	}
-	```
+
+  ```json
+  {
+  	"success": true
+  }
+  ```
 
 - `POST /api/roudnice/` - Returns amount of days since last issue in Roudnice nad Labem.
   - JSON input:
-	```json
-	{
-	  "sitekey": "<api-key>"
-	}
-	```
+  ```json
+  {
+  	"sitekey": "<api-key>"
+  }
+  ```
+
   - JSON output:
-	```json
-	{
-	  "success": true,
-	  "days": <number_of_days>
-	}
-	```
+  ```json
+  {
+    "success": true,
+    "days": <number_of_days>
+  }
+  ```
 - `POST /api/last/` - Returns details of the last reported accident.
   - JSON input:
-	```json
-	{
-	  "sitekey": "<api-key>"
-	}
-	```
-  - JSON output:
-	```json
-	{
-	  "success": true,
-	  "event": EventType
-	}
-	```
+  ```json
+  {
+  	"sitekey": "<api-key>"
+  }
+  ```
 
+  - JSON output:
+  ```json
+  {
+    "success": true,
+    "event": EventType
+  }
+  ```
 
 ## EventType object
-	```json
-	{
-	  "uuid": "<uuid of event>",
-	  "day": <day>,
-	  "month": <month>,
-	  "year": <year>,
-	  "name": "<reason for event>",
-	  "description": "<short description>",
-	  "location": "<city/village name>"
-	}
-	```
+
+    ```json
+    {
+      "uuid": "<uuid of event>",
+      "day": <day>,
+      "month": <month>,
+      "year": <year>,
+      "name": "<reason for event>",
+      "description": "<short description>",
+      "location": "<city/village name>"
+    }
+    ```

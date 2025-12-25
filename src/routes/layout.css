@@ -8,7 +8,7 @@
 	--font-blinker: 'Blinker', sans-serif;
 }
 
-@layer base {	
+@layer base {
 	:root {
 		@apply font-exo font-light decoration-2;
 	}
@@ -22,9 +22,9 @@
 		@apply text-orange-600;
 	}
 	.text-input {
-		@apply rounded-2xl p-2 grow;
+		@apply grow rounded-2xl p-2;
 	}
 	.button-primary {
-		@apply bg-orange-600 p-2 rounded-2xl;
+		@apply rounded-2xl bg-orange-600 p-2;
 	}
 }

@@ -1,11 +1,11 @@
-import { json, error } from "@sveltejs/kit";
+import { json, error } from '@sveltejs/kit';
 import * as dataSchema from '$lib/server/db/schema';
-import { eq } from "drizzle-orm";
-import { setup } from "$lib/server/index.js";
+import { eq } from 'drizzle-orm';
+import { setup } from '$lib/server/index.js';
 
 //delete event
 export const POST = async (event) => {
-	const data = await setup(event) as {
+	const data = (await setup(event)) as {
 		sitekey: string;
 		uuid: string;
 	};
@@ -15,8 +15,7 @@ export const POST = async (event) => {
 
 	try {
 		await event.locals.db.delete(dataSchema.events).where(eq(dataSchema.events.uuid, data.uuid));
-	}
-	catch {
+	} catch {
 		error(500);
 	}
 

@@ -29,7 +29,7 @@
 	});
 	let deletionObject = $derived({
 		uuid: testUuidDelete
-	})
+	});
 
 	let response = $state('No response yet.');
 </script>

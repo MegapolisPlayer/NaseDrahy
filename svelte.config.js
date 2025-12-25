@@ -6,10 +6,10 @@ const config = {
 	// Consult https://svelte.dev/docs/kit/integrations
 	// for more information about preprocessors
 	preprocess: vitePreprocess(),
-	kit: { 
+	kit: {
 		adapter: adapter({
-			config: "wrangler.jsonc",
-			fallback: "plaintext"	
+			config: 'wrangler.jsonc',
+			fallback: 'plaintext'
 		}),
 		csp: {
 			directives: {
@@ -24,18 +24,18 @@ const config = {
 				'connect-src': ['self'],
 				'frame-src': ['self'],
 				'media-src': ['self'],
-				'base-uri': ['self'],
+				'base-uri': ['self']
 			},
 			// must be specified with either the `report-uri` or `report-to` directives, or both
 			reportOnly: {
 				'report-uri': ['/']
 			},
-			mode: 'auto',
+			mode: 'auto'
 		},
 		csrf: {
 			trustedOrigins: ['martinbykov.eu', 'nasedrahy.martinbykov.eu', 'http://localhost:5173']
 		}
-	},
+	}
 };
 
 export default config;

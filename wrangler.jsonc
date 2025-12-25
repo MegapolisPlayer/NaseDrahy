@@ -17,7 +17,7 @@
 	},
 	"keep_vars": true,
 	"vars": {
-		"DEV": "false",
+		"DEV": "false"
 	},
 	"observability": {
 		"logs": {

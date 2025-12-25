@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages';
 	import { fly } from 'svelte/transition';
-	import { darkMode } from "$lib/index.svelte";
+	import { darkMode } from '$lib/index.svelte';
 </script>
 
 <div
-	class="z-10 flex gap-0 rounded-t-2xl {darkMode.getBackgroundColor()}  p-2 ps-5! pe-5! shadow-lg max-lg:w-full flex-col lg:w-4/6"
+	class="z-10 flex gap-0 rounded-t-2xl {darkMode.getBackgroundColor()}  flex-col p-2 ps-5! pe-5! shadow-lg max-lg:w-full lg:w-4/6"
 	in:fly|global={{ duration: 500, delay: 100, x: 0, y: 100, opacity: 0 }}
 >
 	<div class="flex w-full flex-row gap-2">

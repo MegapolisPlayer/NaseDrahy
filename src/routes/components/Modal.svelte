@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { darkMode } from "$lib/index.svelte";
-	import { onMount } from "svelte";
-	import { fade } from "svelte/transition";
+	import { darkMode } from '$lib/index.svelte';
+	import { onMount } from 'svelte';
+	import { fade } from 'svelte/transition';
 
 	let { children, showModal = $bindable() } = $props();
 	let dialog: HTMLDialogElement | undefined = $state();
@@ -19,7 +19,7 @@
 </script>
 
 {#key showModal}
-	<div class="absolute! w-0! h-0! p-0! m-0! *:bg-transparent">
+	<div class="absolute! m-0! h-0! w-0! p-0! *:bg-transparent">
 		<dialog
 			transition:fade|global={{ duration: 250 }}
 			bind:this={dialog}
@@ -27,15 +27,13 @@
 			onclick={(e) => {
 				if (!clickable?.contains(e.target as Node)) dialog?.close();
 			}}
-			class="max-w-screen w-screen min-h-screen min-w-screen
+			class="min-h-screen w-screen max-w-screen min-w-screen
 		{darkMode.getBackdrop()}"
 		>
-			<div
-				class="w-full flex flex-col justify-center items-center grow min-h-screen"
-			>
+			<div class="flex min-h-screen w-full grow flex-col items-center justify-center">
 				<div
 					bind:this={clickable}
-					class="{darkMode.getBackgroundColor()} p-5 text-left rounded-lg max-lg:w-full lg:max-w-4/5 mt-5 mb-5
+					class="{darkMode.getBackgroundColor()} mt-5 mb-5 rounded-lg p-5 text-left max-lg:w-full lg:max-w-4/5
 			"
 				>
 					{@render children?.()}

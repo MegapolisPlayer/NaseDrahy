@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="gap-5 flex flex-col rounded-2xl {darkMode.getBackgroundColor()} p-5 max-lg:w-full lg:w-4/6 grow overflow-y-scroll overflow-x-hidden"
+	class="flex flex-col gap-5 rounded-2xl {darkMode.getBackgroundColor()} grow overflow-x-hidden overflow-y-scroll p-5 max-lg:w-full lg:w-4/6"
 	in:fly|global={{ duration: 1000, delay: 1500, x: 500, y: 0, opacity: 0 }}
 >
 	<h2 class="text-2xl font-medium">

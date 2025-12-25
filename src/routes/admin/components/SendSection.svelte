@@ -1,24 +1,24 @@
 <script lang="ts">
 	import { darkMode } from '$lib/index.svelte';
 
-		let {
-		dest, 
-		response = $bindable(""),
-		testApiKey, 
+	let {
+		dest,
+		response = $bindable(''),
+		testApiKey,
 		object
 	}: {
 		dest: string;
 		response: string;
 		testApiKey: string;
-		object?: Object|undefined;
+		object?: Object | undefined;
 	} = $props();
 
-	const makeFetch = (dest: string, object?: Object|undefined) => {
+	const makeFetch = (dest: string, object?: Object | undefined) => {
 		response = `${dest}, waiting...`;
 		fetch(dest, {
 			body: JSON.stringify({
 				sitekey: testApiKey,
-				...object,
+				...object
 			}),
 			method: 'POST'
 		}).then((v) => {

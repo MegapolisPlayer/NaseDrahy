@@ -1,6 +1,5 @@
-import { error, type Handle, type ServerInit } from '@sveltejs/kit';
+import { type Handle, type ServerInit } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
-import { checkRate } from '$lib/server/rate';
 import { env } from '$env/dynamic/private';
 import { drizzle } from 'drizzle-orm/postgres-js';
 import postgres from 'postgres';
@@ -28,33 +27,24 @@ const securityHeaders = {
 	'Cross-Origin-Opener-Policy': 'same-origin',
 	'X-Frame-Options': 'SAMEORIGIN',
 	'X-Content-Type-Options': 'nosniff',
-	'Referrer-Policy': 'strict-origin-when-cross-origin',
+	'Referrer-Policy': 'strict-origin-when-cross-origin'
 };
 
 const handleSecurity: Handle = async ({ event, resolve }) => {
 	const response = await resolve(event);
-	Object.entries(securityHeaders).forEach(([header, value]) =>
-		response.headers.set(header, value),
-	);
+	Object.entries(securityHeaders).forEach(([header, value]) => response.headers.set(header, value));
 	return response;
-};
-
-const handleRateLimit: Handle = async ({ event, resolve }) => {
-	if (await checkRate(event)) {
-		return resolve(event);
-	}
-	return error(429);
 };
 
 const handleDatabase: Handle = async ({ event, resolve }) => {
 	let connectionString = '';
 
 	if (env.DEV != 'true') {
-		console.log("ENV/DEV is ", env.DEV, ", using hyperdrive");
+		console.log('ENV/DEV is ', env.DEV, ', using hyperdrive');
 		connectionString = event.platform?.env.HYPERDRIVE.connectionString;
 	} else {
 		if (!env.DATABASE_URL) throw Error('DATABASE_URL not set!');
-		console.log("ENV/DEV is ", env.DEV, " using DATABASE_URL: ", env.DATABASE_URL);
+		console.log('ENV/DEV is ', env.DEV, ' using DATABASE_URL: ', env.DATABASE_URL);
 		connectionString = env.DATABASE_URL;
 	}
 
@@ -65,17 +55,12 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 		{ schema: dataSchema }
 	);
 
-	await checkSetting(event.locals.db, "railwaysPageAPIKey", crypto.randomUUID());
-	await checkSetting(event.locals.db, "emailSendingAPIKey", crypto.randomUUID());
+	await checkSetting(event.locals.db, 'railwaysPageAPIKey', crypto.randomUUID());
+	await checkSetting(event.locals.db, 'emailSendingAPIKey', crypto.randomUUID());
 
 	return resolve(event);
 };
 
-export const handle: Handle = sequence(
-	handleDatabase,
-	handleParaglide,
-	handleSecurity,
-	handleRateLimit
-);
+export const handle: Handle = sequence(handleDatabase, handleParaglide, handleSecurity);
 
-export const init: ServerInit = async () => { }
+export const init: ServerInit = async () => {};
