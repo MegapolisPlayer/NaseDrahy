@@ -7,12 +7,12 @@ export const events = pgTable('events', {
 	description: text('description').notNull(),
 	//city name
 	location: text('location').notNull(),
-	uuid: text('uuid').notNull(),
+	uuid: text('uuid').notNull().unique(),
 });
 
 export const settings = pgTable('settings', {
 	id: integer('id').primaryKey().generatedAlwaysAsIdentity(),
-	key: text('key').notNull(),
+	key: text('key').notNull().unique(),
 	value: text('value').notNull(),
 	lang: text('lang').notNull().default('all')
 });
