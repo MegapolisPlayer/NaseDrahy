@@ -77,11 +77,11 @@
 	</form>
 
 	<div class="grid! grid-cols-3! *:flex *:flex-row *:items-center *:gap-2">
-		<SendSection dest={'/api/get/'} {testApiKey} bind:response />
-		<SendSection dest={'/api/roudnice/'} {testApiKey} bind:response />
-		<SendSection dest={'/api/last/'} {testApiKey} bind:response />
-		<SendSection dest={'/api/add/'} {testApiKey} bind:response object={eventObject} />
-		<SendSection dest={'/api/delete/'} {testApiKey} bind:response object={deletionObject} />
+		<SendSection dest="/api/get/" {testApiKey} bind:response />
+		<SendSection dest="/api/roudnice/" {testApiKey} bind:response />
+		<SendSection dest="/api/last/" {testApiKey} bind:response />
+		<SendSection dest="/api/add/" {testApiKey} bind:response object={eventObject} />
+		<SendSection dest="/api/delete/" {testApiKey} bind:response object={deletionObject} />
 	</div>
 	<div class="*:flex *:flex-row *:items-center *:gap-2">
 		<h2 class="text-xl">Input</h2>

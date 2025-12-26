@@ -17,7 +17,7 @@ export const POST = async (event) => {
 			.from(dataSchema.events)
 			.orderBy(desc(dataSchema.events.date))
 			.limit(1);
-	} catch (e) {
+	} catch {
 		return error(500);
 	}
 

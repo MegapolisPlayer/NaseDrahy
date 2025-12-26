@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { darkMode } from '$lib/index.svelte';
-	import { m } from '$lib/paraglide/messages';
 	import type { EventType } from '$lib/types';
 
 	let {
@@ -13,20 +12,20 @@
 </script>
 
 <div
-	class="flex h-25 max-h-25 min-h-25 w-full flex-col rounded-lg p-2 shadow-lg {darkMode.getLightBackground()} justify-center"
+	class="flex min-h-25 w-full flex-col rounded-lg p-2 shadow-lg {darkMode.getLightBackground()} justify-center"
 >
-	<div class="flex w-full flex-row gap-2">
-		<h2 class="text-xl font-medium">{event.name}</h2>
-		<div class="grow"></div>
-		<p class="text-xs italic opacity-50">{event.uuid}</p>
+	<div class="flex w-full gap-2 max-lg:flex-col lg:flex-row">
+		<h2 class="font-medium max-lg:text-base lg:text-xl">{event.name}</h2>
+		<div class="grow max-lg:hidden"></div>
+		<p class="text-xs italic opacity-40 max-lg:hidden">{event.uuid}</p>
 	</div>
-	<div>
+	<div class="overflow-hidden max-lg:text-sm lg:text-base">
 		{event.description}
 	</div>
 	<div
-		class="flex w-full flex-row gap-2 {isRoudnice ? 'font-medium' : ''} {isRoudnice
-			? darkMode.getAccentColorText()
-			: darkMode.getLightBackground()}"
+		class="flex w-full max-lg:flex-col max-lg:text-sm lg:flex-row lg:gap-2 lg:text-base {isRoudnice
+			? 'font-medium!'
+			: ''} {isRoudnice ? darkMode.getAccentColorText() : darkMode.getLightBackground()}"
 	>
 		<div>
 			<i class="ri-calendar-2-line"></i>
@@ -39,5 +38,8 @@
 				<i class="ri ri-error-warning-fill"></i>
 			{/if}
 		</div>
+	</div>
+	<div class="text-[0.6rem] italic opacity-40 lg:hidden">
+		{event.uuid}
 	</div>
 </div>

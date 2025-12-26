@@ -10,10 +10,10 @@
 		dest: string;
 		response: string;
 		testApiKey: string;
-		object?: Object | undefined;
+		object?: object | undefined;
 	} = $props();
 
-	const makeFetch = (dest: string, object?: Object | undefined) => {
+	const makeFetch = (dest: string, object?: object | undefined) => {
 		response = `${dest}, waiting...`;
 		fetch(dest, {
 			body: JSON.stringify({

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import DaysSince from './components/DaysSince.svelte';
-	import Description from './components/Description.svelte';
+	//import Description from './components/Description.svelte';
 	import Events from './components/Events.svelte';
 	import Widget from './components/Widget.svelte';
 

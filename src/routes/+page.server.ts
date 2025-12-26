@@ -1,6 +1,6 @@
 import { getEvents, getSetting } from '$lib/server';
-import { checkRate } from '$lib/server/rate/index.js';
 import { fail } from '@sveltejs/kit';
+import { MAX_CONTENT_LENGTH } from '$lib';
 
 export const load = async (event) => {
 	return {
@@ -10,18 +10,18 @@ export const load = async (event) => {
 
 export const actions = {
 	sendMessage: async (event) => {
-		if (!(await checkRate(event))) {
-			return fail(429, '');
-		}
-
 		const formData = await event.request.formData();
 		if (!formData.has('message')) return fail(400, {});
 
-		let response = await event.fetch('https://notifications.martinbykov.eu/email', {
+		const msg = formData.get('message')?.toString() as string;
+		if (msg.length > MAX_CONTENT_LENGTH) return fail(400, {});
+
+		//through our notifications API
+		const response = await event.fetch('https://notifications.martinbykov.eu/email', {
 			body: JSON.stringify({
 				sendkey: await getSetting(event.locals.db, 'emailSendingAPIKey'),
 				subject: '[NASEDRAHY] New message from tracker',
-				message: formData.get('message')?.toString() as string
+				message: msg
 			}),
 			headers: {
 				'Content-Type': 'application/json'

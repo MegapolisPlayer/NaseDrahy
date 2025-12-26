@@ -1,4 +1,4 @@
-import { pgTable, serial, text, date, integer } from 'drizzle-orm/pg-core';
+import { pgTable, text, date, integer } from 'drizzle-orm/pg-core';
 
 export const events = pgTable('events', {
 	id: integer('id').primaryKey().generatedAlwaysAsIdentity(),

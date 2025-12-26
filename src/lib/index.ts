@@ -9,3 +9,6 @@ export const writeDays = (days: number) => {
 	if (days % 10 == 2 || days % 10 == 3 || days % 10 == 4) return m.days234();
 	else return m.days5();
 };
+
+//max message length
+export const MAX_CONTENT_LENGTH = 250;
