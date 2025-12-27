@@ -1,5 +1,5 @@
 import * as dataSchema from '$lib/server/db/schema';
-import { eq } from 'drizzle-orm';
+import { eq, and, count } from 'drizzle-orm';
 import type { DBType } from './db/types';
 import { error, type RequestEvent } from '@sveltejs/kit';
 import * as crypto from 'node:crypto';
@@ -12,14 +12,24 @@ export const getSetting = async (db: DBType, key: string) => {
 };
 
 export const checkSetting = async (db: DBType, key: string, value: string) => {
-	await db
-		.insert(dataSchema.settings)
-		.values({
+	const len = (
+		await db
+			.select({ count: count() })
+			.from(dataSchema.settings)
+			.where(and(eq(dataSchema.settings.key, key), eq(dataSchema.settings.lang, 'all')))
+			.limit(1)
+	)[0].count;
+
+	if (len === 0) {
+		//create new if no existing
+		await db.insert(dataSchema.settings).values({
 			key: key,
 			value: value,
 			lang: 'all'
-		})
-		.onConflictDoNothing();
+		});
+		return false;
+	}
+	return true;
 };
 
 export const setSetting = async (db: DBType, key: string, value: string) => {
