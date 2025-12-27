@@ -50,7 +50,9 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 
 	event.locals.db = drizzle(
 		postgres(connectionString, {
-			prepare: false
+			prepare: false,
+			max: 1,
+			max_lifetime: 1
 		}),
 		{ schema: dataSchema }
 	);

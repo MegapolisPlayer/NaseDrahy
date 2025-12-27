@@ -48,7 +48,7 @@ export const getAPIKey = async (db: DBType) => {
 };
 
 export const stringToBuffer = (s: string): Buffer => {
-	return Buffer.from(s, 'utf-8');
+	return Buffer.from(s);
 };
 
 export const setup = async (event: RequestEvent) => {
@@ -63,7 +63,12 @@ export const setup = async (event: RequestEvent) => {
 		error(400);
 	}
 
-	if (!crypto.timingSafeEqual(stringToBuffer(data.sitekey), stringToBuffer(apiKey))) {
+	console.log("Our key", apiKey, "submitted", data.sitekey);
+
+	if (
+		data.sitekey.length != apiKey.length || 
+		!crypto.timingSafeEqual(stringToBuffer(data.sitekey), stringToBuffer(apiKey))
+	) {
 		error(401);
 	}
 
