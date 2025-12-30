@@ -109,5 +109,5 @@ export const getEvents = async (db: DBType): Promise<EventType[]> => {
 };
 
 export const canSendMessages = async (db: DBType) => {
-	return (await getSetting(db, "railwaysPageNotifcations")) == "true";
+	return (await getSetting(db, "railwaysPageNotifications")) == "true";
 }
