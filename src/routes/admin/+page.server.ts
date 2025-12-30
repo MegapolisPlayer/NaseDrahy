@@ -7,7 +7,8 @@ export const load = async (event) => {
 	if (env.DEV != 'true') return error(404, 'Not Found');
 
 	return {
-		railwaysPageAPIKey: await getSetting(event.locals.db, 'railwaysPageAPIKey')
+		railwaysPageAPIKey: await getSetting(event.locals.db, 'railwaysPageAPIKey'),
+		railwaysPageReadOnlyAPIKey: await getSetting(event.locals.db, 'railwaysPageReadOnlyAPIKey'),
 	};
 };
 
@@ -19,5 +20,12 @@ export const actions = {
 		const formData = await event.request.formData();
 
 		await setSetting(event.locals.db, 'railwaysPageAPIKey', formData.get('key') as string);
-	}
+	},
+	updateReadAPIKey: async (event) => {
+		if (env.DEV != 'true') return fail(404, 'Not Found');
+
+		const formData = await event.request.formData();
+
+		await setSetting(event.locals.db, 'railwaysPageReadOnlyAPIKey', formData.get('key') as string);
+	},
 };

@@ -42,5 +42,6 @@
 	"enterMessageHere": "Geben Sie hier Ihre Nachricht ein",
 	"failedToSendMessage": "Nachricht konnte nicht gesendet werden",
 	"messageSentSuccessfully": "Nachricht erfolgreich gesendet",
-	"sendingMessage": "Nachricht wird gesendet..."
+	"sendingMessage": "Nachricht wird gesendet...",
+	"totalEvents": "Gesamtanzahl der Ereignisse"
 }

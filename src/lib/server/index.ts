@@ -47,14 +47,19 @@ export const getAPIKey = async (db: DBType) => {
 	return await getSetting(db, 'railwaysPageAPIKey');
 };
 
+export const getReadAPIKey = async (db: DBType) => {
+	return await getSetting(db, 'railwaysPageReadOnlyAPIKey');
+};
+
 export const stringToBuffer = (s: string): Buffer => {
 	return Buffer.from(s);
 };
 
-export const setup = async (event: RequestEvent) => {
+export const setup = async (event: RequestEvent, write: boolean) => {
 	const apiKey = await getAPIKey(event.locals.db);
+	const readApiKey = await getReadAPIKey(event.locals.db);
 
-	if (!apiKey) {
+	if (!apiKey || !readApiKey) {
 		error(503);
 	}
 
@@ -63,16 +68,23 @@ export const setup = async (event: RequestEvent) => {
 		error(400);
 	}
 
-	console.log("Our key", apiKey, "submitted", data.sitekey);
-
 	if (
-		data.sitekey.length != apiKey.length || 
-		!crypto.timingSafeEqual(stringToBuffer(data.sitekey), stringToBuffer(apiKey))
+		//read/write api key
+		((data.sitekey.length === apiKey.length) &&
+			crypto.timingSafeEqual(
+				stringToBuffer(data.sitekey), stringToBuffer(apiKey)
+			)) ||
+		//readonly api key
+		(!write && (data.sitekey.length === readApiKey.length) &&
+			crypto.timingSafeEqual(
+				stringToBuffer(data.sitekey), stringToBuffer(readApiKey)
+			))
 	) {
+		return data;
+	}
+	else {
 		error(401);
 	}
-
-	return data;
 };
 
 export const getEvents = async (db: DBType): Promise<EventType[]> => {

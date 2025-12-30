@@ -42,5 +42,6 @@
 	"enterMessageHere": "Enter message here",
 	"failedToSendMessage": "Failed to send message",
 	"messageSentSuccessfully": "Message sent successfully",
-	"sendingMessage": "Sending message..."
+	"sendingMessage": "Sending message...",
+	"totalEvents": "Total events"
 }

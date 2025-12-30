@@ -8,11 +8,13 @@
 	import { onMount } from 'svelte';
 	import { darkMode } from '$lib/index.svelte';
 
-	let { children } = $props();
+	let { children, data } = $props();
 
 	let ready = $state(false);
 	onMount(() => {
 		ready = true;
+
+		darkMode.setMode(data.dark);
 	});
 </script>
 

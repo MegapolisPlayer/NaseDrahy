@@ -115,3 +115,12 @@ All requests are POST because I don't want to have GETs with JSON bodies.
       "location": "<city/village name>"
     }
     ```
+
+## Response codes
+- `204 No Content` - OK
+- `400 Bad Request` - Missing or invalid parameters
+- `401 Unauthorized` - Invalid sitekey
+- `404 Not Found` - Event with given UUID not found or no events exist
+- `418 I'm a teapot` - Date is in the future (Back to the future!) 
+- `500 Internal Server Error` - Something went wrong on the server
+- `503 Service Unavailable` - Database is down or something went wrong on the server

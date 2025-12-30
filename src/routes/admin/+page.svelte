@@ -1,13 +1,12 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
 	import { darkMode } from '$lib/index.svelte';
 	import type { EventTypeInput } from '$lib/types.js';
+	import APIKey from './components/APIKey.svelte';
 	import InputSection from './components/InputSection.svelte';
 	import SendSection from './components/SendSection.svelte';
 
 	let { data } = $props();
 
-	let apiKey = $derived(data.railwaysPageAPIKey);
 	let testApiKey = $derived(data.railwaysPageAPIKey);
 	let testUuidDelete = $state('');
 
@@ -37,44 +36,16 @@
 <div
 	class="flex w-full grow flex-col gap-5 *:w-4/6 {darkMode.getBackgroundColorChildren()} items-center p-5 *:flex *:flex-col *:gap-2 *:rounded-2xl *:p-5 *:shadow-lg"
 >
-	<form
-		class="button-primary flex-row! items-center!"
-		method="post"
-		use:enhance
+	<APIKey 
 		action="?/updateAPIKey"
-	>
-		<h2 class="text-xl">API key</h2>
-		<input
-			class="text-input {darkMode.getLightBackground()}"
-			name="key"
-			type="text"
-			bind:value={apiKey}
-			required
-		/>
-		<button
-			type="button"
-			onclick={() => {
-				apiKey = crypto.randomUUID();
-			}}
-			class="button-primary {darkMode.getAccentColor()} {darkMode.getAccentColorBackground()}"
-		>
-			Generate new
-		</button>
-		<button
-			type="button"
-			onclick={() => {
-				apiKey = data.railwaysPageAPIKey;
-			}}
-			class="button-primary {darkMode.getAccentColor()} {darkMode.getAccentColorBackground()}"
-		>
-			Get true value
-		</button>
-		<button
-			class="button-primary {darkMode.getAccentColor()} {darkMode.getAccentColorBackground()}"
-		>
-			Update
-		</button>
-	</form>
+		name="API Key"
+		trueValue={data.railwaysPageAPIKey}
+	/>
+	<APIKey 
+		action="?/updateReadAPIKey"
+		name="Readonly API Key"
+		trueValue={data.railwaysPageReadOnlyAPIKey}
+	/>
 
 	<div class="grid! grid-cols-3! *:flex *:flex-row *:items-center *:gap-2">
 		<SendSection dest="/api/get/" {testApiKey} bind:response />
@@ -96,6 +67,15 @@
 				class="button-primary {darkMode.getAccentColor()} {darkMode.getAccentColorBackground()}"
 			>
 				Use correct
+			</button>
+				<button
+				type="button"
+				onclick={() => {
+					testApiKey = data.railwaysPageReadOnlyAPIKey;
+				}}
+				class="button-primary {darkMode.getAccentColor()} {darkMode.getAccentColorBackground()}"
+			>
+				Use read only
 			</button>
 		</InputSection>
 

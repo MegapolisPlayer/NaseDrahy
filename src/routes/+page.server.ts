@@ -30,6 +30,18 @@ export const actions = {
 		});
 
 		if (response.status < 300) return;
-		else return fail(418, {});
+		else return fail(503, {});
+	},
+	setDarkMode: async (event) => {
+		const formData = await event.request.formData();
+		if (!formData.has('mode')) return fail(400, {});
+		const mode = formData.get('mode')?.toString() as string;
+
+		if(mode == 'light') {
+			event.cookies.set("dark", "light", { path: '/' })
+		}
+		else if(mode == 'dark') {
+			event.cookies.set("dark", "dark", { path: '/' })
+		}
 	}
 };

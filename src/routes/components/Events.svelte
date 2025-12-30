@@ -16,9 +16,15 @@
 	class="flex flex-col gap-5 rounded-2xl {darkMode.getBackgroundColor()} grow overflow-x-hidden overflow-y-scroll p-5 max-lg:w-9/10 lg:w-4/6"
 	in:fly|global={{ duration: 1000, delay: 1500, x: 500, y: 0, opacity: 0 }}
 >
-	<h2 class="max-lg:lg font-medium lg:text-2xl">
-		{m.previousExtraordinaryEvents()}
-	</h2>
+	<div class="flex w-full flex-row gap-2">
+		<h2 class="max-lg:lg font-medium lg:text-2xl">
+			{m.previousExtraordinaryEvents()}
+		</h2>
+		<div class="grow"></div>
+		<p class="max-lg:text-sm italic lg:text-lg">
+			{m.totalEvents()}: {events.length}
+		</p>
+	</div>
 
 	{#each events as event, i (i)}
 		<Event {event} />

@@ -42,5 +42,6 @@
 	"enterMessageHere": "Zadejte zprávu zde",
 	"failedToSendMessage": "Odeslání zprávy se nezdařilo",
 	"messageSentSuccessfully": "Zpráva byla úspěšně odeslána",
-	"sendingMessage": "Odesílání zprávy..."
+	"sendingMessage": "Odesílání zprávy...",
+	"totalEvents": "Celkem událostí"
 }

@@ -7,7 +7,7 @@ import { setup } from '$lib/server/index.js';
 
 //get amount of days since last problem in roudnice nad labem
 export const POST = async (event) => {
-	await setup(event);
+	await setup(event, false);
 
 	let object = undefined;
 
@@ -29,7 +29,6 @@ export const POST = async (event) => {
 	const objectDate = object[0].date?.split('-').map((v) => parseInt(v));
 
 	return json({
-		success: true,
 		days: Math.trunc(
 			(Date.now() - new Date(objectDate[0], objectDate[1] - 1, objectDate[2]).getTime()) / DAYS_MS
 		),

@@ -4,7 +4,7 @@ import { getEvents } from '$lib/server/index.js';
 
 //get all events
 export const POST = async (event) => {
-	await setup(event);
+	await setup(event, false);
 
 	try {
 		return json({

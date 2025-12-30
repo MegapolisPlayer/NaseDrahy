@@ -4,6 +4,7 @@
 </script>
 
 <div class="flex flex-row gap-1">
+	<div class="grow lg:hidden"></div>
 	<span class="max-lg:hidden">
 		<i class="ri-translate-2"></i>
 		{m.selectLanguage()}:

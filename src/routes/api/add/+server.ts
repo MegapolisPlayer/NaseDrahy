@@ -5,7 +5,7 @@ import type { EventTypeInput } from '$lib/types.js';
 
 //add event
 export const POST = async (event) => {
-	const data = (await setup(event)) as {
+	const data = (await setup(event, true)) as {
 		sitekey: string;
 	} & EventTypeInput;
 	if (
@@ -16,9 +16,15 @@ export const POST = async (event) => {
 		!data.description ||
 		!data.city ||
 		data.month > 12 ||
-		data.day > 31
+		data.day > 31 ||
+		data.year < 1800
 	) {
-		error(400);
+		return error(400);
+	}
+
+	//no dates in the future
+	if(new Date(data.year, data.month-1, data.day).getTime() > Date.now()) {
+		return error(418);
 	}
 
 	const uuid = crypto.randomUUID();
@@ -36,7 +42,6 @@ export const POST = async (event) => {
 	}
 
 	return json({
-		success: true,
 		uuid: uuid
 	});
 };

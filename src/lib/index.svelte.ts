@@ -11,6 +11,12 @@ export class DarkModeHandler {
 		this.DARK_MODE = false;
 	};
 
+	setMode = (mode: string) => {
+		if(mode == 'dark') this.DARK_MODE = true;
+		else if(mode == 'light') this.DARK_MODE = false;
+		console.log(this.DARK_MODE, "DM", mode);
+	}
+
 	getBackgroundColor = () => {
 		return this.DARK_MODE
 			? 'bg-neutral-800! text-neutral-100 decoration-neutral-100'
