@@ -13,7 +13,7 @@ export const POST = async (event) => {
 		object = await event.locals.db
 			.select()
 			.from(dataSchema.events)
-			.where(sql`${dataSchema.events.location} LIKE ${'%Roudnice%'}`)
+			.where(sql`LOWER(${dataSchema.events.location}) LIKE LOWER(${'%Roudnice%'})`)
 			.orderBy(desc(dataSchema.events.date))
 			.limit(1);
 	} catch {
