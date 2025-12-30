@@ -7,9 +7,11 @@
 	import MessageSendModal from './MessageSendModal.svelte';
 
 	let {
-		events
+		events,
+		canSendMessages
 	}: {
 		events: EventType[];
+		canSendMessages: boolean;
 	} = $props();
 
 	let showMessageModal = $state(false);
@@ -49,24 +51,26 @@
 	<div
 		class="flex w-full gap-2 max-lg:flex-col max-lg:justify-center max-lg:text-sm lg:flex-row lg:items-center"
 	>
-		<div class="grow max-lg:hidden"></div>
-		<div class="">
-			{m.didWeNotNoticeAnEvent()}
-		</div>
-		<div class="flex flex-row max-lg:w-full">
-			<div class="grow lg:hidden"></div>
-			<button
-				class="group {darkMode.getAccentColor()} button-primary text-neutral-100 hover:text-neutral-100 active:bg-orange-700"
-				onclick={() => (showMessageModal = true)}
-			>
-				<i class="ri-send-plane-line group-hover:hidden"></i>
-				<i class="ri-send-plane-fill not-group-hover:hidden"></i>
-				{m.leaveAMessage()}
-			</button>
-		</div>
+		{#if canSendMessages}
+			<div class="grow max-lg:hidden"></div>
+			<div class="">
+				{m.didWeNotNoticeAnEvent()}
+			</div>
+			<div class="flex flex-row max-lg:w-full">
+				<div class="grow lg:hidden"></div>
+				<button
+					class="group {darkMode.getAccentColor()} button-primary text-neutral-100 hover:text-neutral-100 active:bg-orange-700"
+					onclick={() => (showMessageModal = true)}
+				>
+					<i class="ri-send-plane-line group-hover:hidden"></i>
+					<i class="ri-send-plane-fill not-group-hover:hidden"></i>
+					{m.leaveAMessage()}
+				</button>
+			</div>
+		{/if}
 	</div>
 </div>
 
-<MessageSendModal 
-	bind:showMessageModal
-/>
+{#if canSendMessages}
+	<MessageSendModal bind:showMessageModal />
+{/if}

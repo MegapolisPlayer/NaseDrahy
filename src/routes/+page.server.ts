@@ -1,15 +1,20 @@
-import { getEvents, getSetting } from '$lib/server';
+import { getEvents, getSetting, canSendMessages } from '$lib/server';
 import { fail } from '@sveltejs/kit';
 import { MAX_CONTENT_LENGTH } from '$lib';
 
 export const load = async (event) => {
 	return {
-		events: await getEvents(event.locals.db)
+		events: await getEvents(event.locals.db),
+		canSendMessages: (await canSendMessages(event.locals.db))
 	};
 };
 
 export const actions = {
 	sendMessage: async (event) => {
+		if (!(await canSendMessages(event.locals.db))) {
+			return fail(503, {});
+		}
+
 		const formData = await event.request.formData();
 		if (!formData.has('message')) return fail(400, {});
 
@@ -37,10 +42,10 @@ export const actions = {
 		if (!formData.has('mode')) return fail(400, {});
 		const mode = formData.get('mode')?.toString() as string;
 
-		if(mode == 'light') {
+		if (mode == 'light') {
 			event.cookies.set("dark", "light", { path: '/' })
 		}
-		else if(mode == 'dark') {
+		else if (mode == 'dark') {
 			event.cookies.set("dark", "dark", { path: '/' })
 		}
 	}

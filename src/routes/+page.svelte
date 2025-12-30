@@ -8,7 +8,7 @@
 </script>
 
 <div class="flex w-full grow flex-col items-center gap-5 pt-5 pb-5 *:shadow-lg">
-	<DaysSince events={data.events} />
+	<DaysSince events={data.events} canSendMessages={data.canSendMessages} />
 
 	<Widget />
 
