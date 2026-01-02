@@ -1,6 +1,7 @@
 import { getEvents, getSetting, canSendMessages } from '$lib/server';
 import { fail } from '@sveltejs/kit';
 import { MAX_CONTENT_LENGTH } from '$lib';
+import { env } from '$env/dynamic/private';
 
 export const load = async (event) => {
 	return {
@@ -24,7 +25,7 @@ export const actions = {
 		//through our notifications API
 		const response = await event.fetch('https://notifications.martinbykov.eu/email', {
 			body: JSON.stringify({
-				sendkey: await getSetting(event.locals.db, 'emailSendingAPIKey'),
+				sendkey: env.EMAIL_API_KEY,
 				subject: '[NASEDRAHY] New message from tracker',
 				message: msg
 			}),

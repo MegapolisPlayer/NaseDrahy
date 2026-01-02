@@ -61,8 +61,6 @@ const handleDatabase: Handle = async ({ event, resolve }) => {
 	await checkSetting(event.locals.db, 'railwaysPageReadOnlyAPIKey', crypto.randomUUID());
 	await checkSetting(event.locals.db, 'railwaysPageNotifications', 'true');
 
-	await checkSetting(event.locals.db, 'emailSendingAPIKey', crypto.randomUUID());
-
 	return resolve(event);
 };
 

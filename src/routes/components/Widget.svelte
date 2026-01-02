@@ -19,7 +19,7 @@
 	<div class="grow"></div>
 	<div class=" flex flex-col items-center justify-center gap-0 max-lg:text-center">
 		<a
-			href="https://kukiweb.cz/trwidget"
+			href="https://kukiweb.cz/rail-incs"
 			class="group rounded-2xl max-lg:w-full {darkMode.getBackgroundColor()} p-5 text-xl font-medium {darkMode.getAccentColorBackground()} hover:text-white active:bg-orange-700"
 		>
 			<i class="ri-download-line group-hover:hidden"></i>
