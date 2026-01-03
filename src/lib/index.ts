@@ -12,3 +12,6 @@ export const writeDays = (days: number) => {
 
 //max message length
 export const MAX_CONTENT_LENGTH = 250;
+
+export const LINK_REGEX = /(?:https*:\/\/)?((?:(?:[a-z]|[0-9])+)\.)?((?:[a-z]|[0-9]){2,})(\.(?:[a-z]|[0-9]){2,6})\/?.*?/gu;
+export const LINK_SUBSTITUTE = '<a href="https://$1$2$3"><i class="ri-link"></i>$1$2$3</a>';

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { darkMode } from '$lib/index.svelte';
 	import type { EventType } from '$lib/types';
+	import { LINK_REGEX, LINK_SUBSTITUTE } from '$lib';
 
 	let {
 		event
@@ -20,7 +21,7 @@
 		<p class="text-xs italic opacity-40 max-lg:hidden">{event.uuid}</p>
 	</div>
 	<div class="overflow-hidden max-lg:text-sm lg:text-base">
-		{event.description}
+		{@html event.description.replaceAll(LINK_REGEX, LINK_SUBSTITUTE)}
 	</div>
 	<div
 		class="flex w-full max-lg:flex-col max-lg:text-sm lg:flex-row lg:gap-2 lg:text-base {isRoudnice
