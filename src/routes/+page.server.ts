@@ -22,10 +22,10 @@ export const actions = {
 		const msg = formData.get('message')?.toString() as string;
 		if (msg.length > MAX_CONTENT_LENGTH) return fail(400, {});
 
-		//through our notifications API
+		//through our notifications API, target set automatically
 		const response = await event.fetch('https://notifications.martinbykov.eu/email', {
 			body: JSON.stringify({
-				sendkey: env.EMAIL_API_KEY,
+				sendkey: await getSetting(event.locals.db, "mainPageNotifyAPIKey"),
 				subject: '[NASEDRAHY] New message from tracker',
 				message: msg
 			}),

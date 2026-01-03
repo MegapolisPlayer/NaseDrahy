@@ -27,4 +27,13 @@
 	.button-primary {
 		@apply rounded-2xl bg-orange-600 p-2;
 	}
+	button {
+		@apply hover:-translate-0.5! duration-300 transition-all hover:shadow-2xl;
+	}
+	a {
+		@apply hover:-translate-0.5! duration-300 transition-all hover:shadow-2xl;
+	}
+	.hoverable {
+		@apply hover:-translate-0.5! duration-300 transition-all hover:shadow-2xl;
+	}
 }

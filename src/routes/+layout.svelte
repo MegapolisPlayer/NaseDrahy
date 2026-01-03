@@ -31,7 +31,7 @@
 			class="relative flex min-h-screen max-w-screen min-w-screen grow flex-col items-center justify-center gap-0 overflow-hidden bg-[url('/pozadi.jpg')] bg-cover bg-fixed"
 		>
 			<div
-				class="absolute top-0 left-0 z-1 h-full w-full {darkMode.getTransparentBackgroundColor()}"
+				class="absolute top-0 left-0 z-1 h-full w-full {darkMode.getBackgroundCoverColor()}"
 			></div>
 
 			<Topbar />

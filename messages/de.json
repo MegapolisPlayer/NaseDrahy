@@ -43,5 +43,11 @@
 	"failedToSendMessage": "Nachricht konnte nicht gesendet werden",
 	"messageSentSuccessfully": "Nachricht erfolgreich gesendet",
 	"sendingMessage": "Nachricht wird gesendet...",
-	"totalEvents": "Gesamtanzahl der Ereignisse"
+	"totalEvents": "Gesamtanzahl der Ereignisse",
+	"thisWasToBeExpected": "Das war zu erwarten",
+	"unbelievableButTrue": "Unglaublich, aber wahr",
+	"aBitWierdIsntIt": "Ein bisschen seltsam, nicht wahr?",
+	"whenWillItHappenToday": "Wann wird es heute passieren",
+	"completelyBonkers": "Völlig verrückt! Die Eisenbahnen haben einen ganzen Monat lang ohne eine einzige Störung funktioniert? Das ist unmöglich! Ist das ein Traum? Irgendetwas muss nicht stimmen...",
+	"theWebsiteAdministratorProbablyConsumedSomeSubstances": "Der Website-Administrator hat wahrscheinlich einige Substanzen konsumiert"
 }

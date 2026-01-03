@@ -43,5 +43,11 @@
 	"failedToSendMessage": "Odeslání zprávy se nezdařilo",
 	"messageSentSuccessfully": "Zpráva byla úspěšně odeslána",
 	"sendingMessage": "Odesílání zprávy...",
-	"totalEvents": "Celkem událostí"
+	"totalEvents": "Celkem událostí",
+	"thisWasToBeExpected": "To se dalo očekávat",
+	"unbelievableButTrue": "Neuvěřitelné, ale jednak pravda",
+	"aBitWierdIsntIt": "Je to trochu divné, že?",
+	"whenWillItHappenToday": "Kdy se to dnes stane",
+	"completelyBonkers": "Dráhy fungovaly celý měsíc bez jediné poruchy? To je nemožné! Je to sen? Něco musí být špatně...",
+	"theWebsiteAdministratorProbablyConsumedSomeSubstances": "Správce webu pravděpodobně požil nějaké látky"
 }

@@ -33,7 +33,7 @@
 			<div class="flex min-h-screen w-full grow flex-col items-center justify-center">
 				<div
 					bind:this={clickable}
-					class="{darkMode.getBackgroundColor()} mt-5 mb-5 rounded-lg p-5 text-left max-lg:w-9/10 lg:max-w-4/5
+					class="{darkMode.getBackgroundColor()} mt-5 mb-5 rounded-2xl p-5 text-left max-lg:w-9/10 lg:max-w-4/5
 			"
 				>
 					{@render children?.()}

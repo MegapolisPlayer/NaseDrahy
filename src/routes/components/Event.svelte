@@ -12,7 +12,7 @@
 </script>
 
 <div
-	class="flex min-h-25 w-full flex-col rounded-lg p-2 shadow-lg {darkMode.getLightBackground()} justify-center"
+	class="hoverable flex min-h-25 w-full flex-col rounded-lg p-2 shadow-lg {darkMode.getLightBackground()} justify-center"
 >
 	<div class="flex w-full gap-2 max-lg:flex-col lg:flex-row">
 		<h2 class="font-medium max-lg:text-base lg:text-xl">{event.name}</h2>
@@ -25,7 +25,7 @@
 	<div
 		class="flex w-full max-lg:flex-col max-lg:text-sm lg:flex-row lg:gap-2 lg:text-base {isRoudnice
 			? 'font-medium!'
-			: ''} {isRoudnice ? darkMode.getAccentColorText() : darkMode.getLightBackground()}"
+			: ''} {isRoudnice ? darkMode.getAccentColorText() : ''}"
 	>
 		<div>
 			<i class="ri-calendar-2-line"></i>

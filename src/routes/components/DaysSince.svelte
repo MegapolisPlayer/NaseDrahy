@@ -23,7 +23,10 @@
 </script>
 
 <div
-	class="flex flex-col rounded-2xl max-lg:gap-2 lg:gap-6 {darkMode.getBackgroundColor()}  p-5 max-lg:w-9/10 lg:w-4/6"
+	class="
+		flex flex-col rounded-2xl max-lg:gap-2 lg:gap-6 {darkMode.getBackgroundColor()}  p-5 max-lg:w-9/10 lg:w-4/6
+		hoverable
+	"
 	in:fly|global={{ duration: 1000, delay: 500, x: 500, y: 0, opacity: 0 }}
 >
 	{#if events.length === 0}
@@ -47,6 +50,26 @@
 				{daysPassed} {writeDays(daysPassed)}
 			{/if}
 		</h1>
+		<h3 class="w-full text-center">
+			<!-- haha funny messages -->
+			{#if daysPassed < 0}
+				{m.theWebsiteAdministratorProbablyConsumedSomeSubstances()}
+			{:else if daysPassed == 0}
+				{m.thisWasToBeExpected()}.
+			{:else if daysPassed <= 2}
+				{m.whenWillItHappenToday()}
+			{:else if daysPassed <= 7}
+				{m.aBitWierdIsntIt()}
+			{:else if daysPassed <= 14}
+				{m.unbelievableButTrue()}
+			{:else if daysPassed <= 28}
+				{m.thisGoesIntoTheYearlyReport()}
+			{:else}
+				<span class="font-bold">
+					{m.completelyBonkers()}
+				</span>
+			{/if}
+		</h3>
 	{/if}
 	<div
 		class="flex w-full gap-2 max-lg:flex-col max-lg:justify-center max-lg:text-sm lg:flex-row lg:items-center"
@@ -59,7 +82,7 @@
 			<div class="flex flex-row max-lg:w-full">
 				<div class="grow lg:hidden"></div>
 				<button
-					class="group {darkMode.getAccentColor()} button-primary text-neutral-100 hover:text-neutral-100 active:bg-orange-700"
+					class="group {darkMode.getAccentColor()} font-medium button-primary text-neutral-100 hover:text-neutral-100 active:bg-orange-700"
 					onclick={() => (showMessageModal = true)}
 				>
 					<i class="ri-send-plane-line group-hover:hidden"></i>

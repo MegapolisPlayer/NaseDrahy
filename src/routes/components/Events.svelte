@@ -13,7 +13,7 @@
 </script>
 
 <div
-	class="flex flex-col gap-5 rounded-2xl {darkMode.getBackgroundColor()} grow overflow-x-hidden overflow-y-scroll p-5 max-lg:w-9/10 lg:w-4/6"
+	class="hoverable flex flex-col gap-5 rounded-2xl {darkMode.getBackgroundColor()} grow overflow-x-hidden overflow-y-scroll p-5 max-lg:w-9/10 lg:w-4/6"
 	in:fly|global={{ duration: 1000, delay: 1500, x: 500, y: 0, opacity: 0 }}
 >
 	<div class="flex w-full flex-row gap-2">
